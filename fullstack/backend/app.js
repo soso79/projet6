@@ -11,7 +11,7 @@ app.use((req, res, next) => {
     next();
   });
 
-app.post('/api/stuff', (req,res,next) =>{
+app.post('/api/Hottakes', (req,res,next) =>{
 console.log(req.body);
 res.status(201).json({
 message: 'sauce crée !!!'
@@ -21,8 +21,8 @@ message: 'sauce crée !!!'
 
 
 
-app.get('/api/stuff', (req, res, next) => {
-    const stuff = [
+app.get('/api/HotTakes', (req, res, next) => {
+    const HotTakes = [
       {
         _id: 'oeihfzeoi',
         title: 'Mon premier objet',
@@ -40,7 +40,7 @@ app.get('/api/stuff', (req, res, next) => {
         userId: 'qsomihvqios',
       },
     ];
-    res.status(200).json(stuff);
+    res.status(200).json(HotTakes);
   });
 
 module.exports = app;
