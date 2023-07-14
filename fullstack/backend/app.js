@@ -11,9 +11,17 @@ app.use((req, res, next) => {
     next();
   });
 
+app.post('/api/stuff', (req,res,next) =>{
+console.log(req.body);
+res.status(201).json({
+message: 'sauce crée !!!'
+});
+
+});
 
 
-app.use('/api/stuff', (req, res, next) => {
+
+app.get('/api/stuff', (req, res, next) => {
     const stuff = [
       {
         _id: 'oeihfzeoi',
