@@ -4,6 +4,10 @@ const app = express();
 
 const mongoose = require('mongoose');
 
+
+const Sauces = require('./models/sauces');
+
+
 mongoose.connect('mongodb+srv://soso:Manimal@cluster0.r62xbdt.mongodb.net/',
   { useNewUrlParser: true,
     useUnifiedTopology: true })
@@ -21,13 +25,15 @@ app.use((req, res, next) => {
     next();
   });
 
-app.post('/api/Hottakes', (req,res,next) =>{
-console.log(req.body);
-res.status(201).json({
-message: 'sauce crée !!!'
-});
-
-});
+  app.post('/api/HotTakes', (req, res, next) => {
+    delete req.body._id;
+    const sauces = new Sauces({
+      ...req.body
+    });
+    sauces.save()
+      .then(() => res.status(201).json({ message: 'Objet enregistré !'}))
+      .catch(error => res.status(400).json({ error }));
+  });
 
 
 
