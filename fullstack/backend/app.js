@@ -34,6 +34,13 @@ app.use((req, res, next) => {
   });
 
 
+  app.get('/api/HotTakes/:id', (req, res, next) => {
+    Thing.findOne({ _id: req.params.id })
+      .then(sauce => res.status(200).json(sauce))
+      .catch(error => res.status(404).json({ error }));
+  });
+
+
 
 app.get('/api/HotTakes', (req, res, next) => {
   Sauce.find()
