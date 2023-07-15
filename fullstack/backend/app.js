@@ -4,9 +4,7 @@ const app = express();
 
 const mongoose = require('mongoose');
 
-
-const Sauces = require('./models/sauces');
-
+const Sauces = require('./models/Sauces');
 
 mongoose.connect('mongodb+srv://soso:Manimal@cluster0.r62xbdt.mongodb.net/',
   { useNewUrlParser: true,
