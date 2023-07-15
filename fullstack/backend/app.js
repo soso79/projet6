@@ -29,18 +29,22 @@ app.use((req, res, next) => {
       ...req.body
     });
     sauce.save()
-      .then(() => res.status(201).json({ message: 'Sauce enregistré !'}))
+      .then(() => res.status(201).json({ message: 'Sauce enregistrée !'}))
       .catch(error => res.status(400).json({ error }));
   });
 
 
   app.put('/api/HotTakes/:id', (req, res, next) => {
     Sauce.updateOne({ _id: req.params.id }, { ...req.body, _id: req.params.id })
-      .then(() => res.status(200).json({ message: 'Sauce modifié !'}))
+      .then(() => res.status(200).json({ message: 'Sauce modifiée !'}))
       .catch(error => res.status(400).json({ error }));
   });
   
-
+  app.delete('/api/HotTakes/:id', (req, res, next) => {
+    Sauce.deleteOne({ _id: req.params.id })
+      .then(() => res.status(200).json({ message: 'Sauce supprimée !'}))
+      .catch(error => res.status(400).json({ error }));
+  });
 
 
   app.get('/api/HotTakes/:id', (req, res, next) => {
