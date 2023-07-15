@@ -4,7 +4,7 @@ const app = express();
 
 const mongoose = require('mongoose');
 
-const Sauces = require('./models/Sauces');
+const Sauce = require('./models/Sauce');
 
 mongoose.connect('mongodb+srv://soso:Manimal@cluster0.r62xbdt.mongodb.net/',
   { useNewUrlParser: true,
@@ -25,10 +25,10 @@ app.use((req, res, next) => {
 
   app.post('/api/HotTakes', (req, res, next) => {
     delete req.body._id;
-    const sauces = new Sauces({
+    const sauce = new Sauce({
       ...req.body
     });
-    sauces.save()
+    sauce.save()
       .then(() => res.status(201).json({ message: 'Objet enregistré !'}))
       .catch(error => res.status(400).json({ error }));
   });
@@ -36,25 +36,12 @@ app.use((req, res, next) => {
 
 
 app.get('/api/HotTakes', (req, res, next) => {
-    const HotTakes = [
-      {
-        _id: 'oeihfzeoi',
-        title: 'Mon premier objet',
-        description: 'Les infos de mon premier objet',
-        imageUrl: 'https://cdn.pixabay.com/photo/2019/06/11/18/56/camera-4267692_1280.jpg',
-        price: 4900,
-        userId: 'qsomihvqios',
-      },
-      {
-        _id: 'oeihfzeomoihi',
-        title: 'Mon deuxième objet',
-        description: 'Les infos de mon deuxième objet',
-        imageUrl: 'https://cdn.pixabay.com/photo/2019/06/11/18/56/camera-4267692_1280.jpg',
-        price: 2900,
-        userId: 'qsomihvqios',
-      },
-    ];
-    res.status(200).json(HotTakes);
-  });
+  Sauce.find()
+    .then(sauces => res.status(200).json(sauces))
+    .catch(error => res.status(400).json({ error }));
+});
+
+    
+  
 
 module.exports = app;
