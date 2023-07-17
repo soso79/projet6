@@ -7,8 +7,11 @@ const mongoose = require('mongoose');
 const Sauce = require('./models/Sauce');
 
 const HotTakesRoutes = require('./routes/HotTakes');
+const userRoutes = require('./routes/User');
+
 
 app.use('/api/HotTakes', HotTakesRoutes);
+app.use('/api/auth', userRoutes);
 
 
 mongoose.connect('mongodb+srv://soso:Manimal@cluster0.r62xbdt.mongodb.net/',
@@ -30,7 +33,8 @@ app.use((req, res, next) => {
   
 
   
-    
+  
+  
   
 
 module.exports = app;
