@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const Sauce = require('./models/Sauce');
 
 const HotTakesRoutes = require('./routes/HotTakes');
-const userRoutes = require('./routes/User');
+const userRoutes = require('./routes/user');
 
 
 

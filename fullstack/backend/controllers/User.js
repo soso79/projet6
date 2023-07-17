@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt');
 
 
 
-const User = require('../models/User');
+const user = require('../models/user');
 
 exports.signup = (req, res, next) => {
     bcrypt.hash(req.body.password, 10)
@@ -21,5 +21,8 @@ exports.signup = (req, res, next) => {
 
 
 exports.login = (req, res, next) => {
+
+
+
 
 };
