@@ -8,7 +8,7 @@ const Sauce = require('./models/Sauce');
 
 const HotTakesRoutes = require('./routes/HotTakes');
 const userRoutes = require('./routes/User');
-
+const path = require('path');
 
 
 
@@ -33,6 +33,7 @@ app.use((req, res, next) => {
 
 app.use('/api/HotTakes', HotTakesRoutes);
 app.use('/api/auth', userRoutes);
+app.use('/images', express.static(path.join(__dirname, 'images')));
 
   
   
