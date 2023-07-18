@@ -1,12 +1,15 @@
 const express = require('express');
 const router = express.Router();
 
+const auth = require('../middleware/auth');
+
+
 const HotTakesCtrl = require('../controllers/HotTakes');
 
-router.get('/', HotTakesCtrl.getAllSauce);
-router.post('/', HotTakesCtrl.createSauce);
-router.get('/:id', HotTakesCtrl.getOneSauce);
-router.put('/:id', HotTakesCtrl.modifySauce);
-router.delete('/:id', HotTakesCtrl.deleteSauce);
+router.get('/', auth, HotTakesCtrl.getAllSauce);
+router.post('/', auth, HotTakesCtrl.createSauce);
+router.get('/:id', auth, HotTakesCtrl.getOneSauce);
+router.put('/:id', auth, HotTakesCtrl.modifySauce);
+router.delete('/:id', auth, HotTakesCtrl.deleteSauce);
 
 module.exports = router;
