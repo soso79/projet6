@@ -1,7 +1,8 @@
 const express = require('express');
+const auth = require('../middleware/auth');
 const router = express.Router();
 
-const auth = require('../middleware/auth');
+
 
 
 const HotTakesCtrl = require('../controllers/HotTakes');
