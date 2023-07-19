@@ -1,10 +1,10 @@
 const express = require('express');
-
+const bodyParser = require('body-parser');
 const app = express();
 
 const mongoose = require('mongoose');
 
-const Sauce = require('./models/Sauce');
+
 
 const HotTakesRoutes = require('./routes/HotTakes');
 const userRoutes = require('./routes/User');
