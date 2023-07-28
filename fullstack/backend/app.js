@@ -1,14 +1,15 @@
 const express = require('express');
+const path = require('path');
 
-const app = express();
 
 const mongoose = require('mongoose');
 
+const app = express();
 
 
 const HotTakesRoutes = require('./routes/HotTakes');
 const userRoutes = require('./routes/User');
-const path = require('path');
+
 
 
 
@@ -21,7 +22,7 @@ const path = require('path');
 
   
 
-app.use(express.json());
+
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -30,6 +31,7 @@ app.use((req, res, next) => {
     next();
   });
   
+  app.use(express.json());
 
 app.use('/api/HotTakes', HotTakesRoutes);
 app.use('/api/auth', userRoutes);
