@@ -7,10 +7,10 @@ const multer = require('../middleware/multer-config');
 
 const HotTakesCtrl = require('../controllers/HotTakes');
 
-router.get('/', auth, HotTakesCtrl.getAllSauce);
+router.get('/',auth, HotTakesCtrl.getAllSauce);
 router.post('/', auth, multer, HotTakesCtrl.createSauce);
-router.get('/:id', auth, HotTakesCtrl.getOneSauce);
-router.put('/:id', auth, multer, HotTakesCtrl.modifySauce);
-router.delete('/:id', auth, HotTakesCtrl.deleteSauce);
+router.get('/:id',auth, HotTakesCtrl.getOneSauce);
+router.put('/:id',auth, multer, HotTakesCtrl.modifySauce);
+router.delete('/:id',auth,  HotTakesCtrl.deleteSauce);
 
 module.exports = router;
